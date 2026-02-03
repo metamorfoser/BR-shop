@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useCart } from "./context/useCart";
 
 import { Header } from "./components/Header";
@@ -18,7 +18,9 @@ export function RootApp() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<ProductsPage />} />
+        {/* Gör startsidan till /butik */}
+        <Route path="/" element={<Navigate to="/butik" replace />} />
+
         <Route path="/butik" element={<ProductsPage />} />
         <Route path="/products/:id" element={<ProductDetailsPage />} />
         <Route path="/cart" element={<CartPage />} />
