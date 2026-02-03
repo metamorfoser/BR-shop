@@ -1,4 +1,5 @@
 BR-shop med React, TypeScript & Vite
+
 En funktionell webshop byggd med React, TypeScript och Vite.
 Applikationen hämtar produktdata från DummyJSON‑API och erbjuder ett fullt kundvagnsflöde med produktsidor, varukorg, checkout och orderbekräftelse.
 Projektet är utvecklat som en övning i komponentbaserad arkitektur, tillståndshantering, API‑kommunikation och routing i frontendmiljö.
