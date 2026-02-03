@@ -1,15 +1,26 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { resolve } from "path";
 
-// Viktigt: base måste matcha ditt GitHub-repo-namn
-// Annars fungerar inte routing när du publicerar på GitHub Pages.
 export default defineConfig({
-  base: '/BR-shop/',
-
-  server: {
-    open: true,   // öppnar webbläsaren automatiskt
-    port: 5173    // port för dev-servern
-  },
+  // Måste matcha repo-namn
+  base: "/BR-shop/",
 
   plugins: [react()],
-})
+
+  // så att GitHub Pages alla routes fungerar
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, "index.html"),
+        // GitHub Pages använder 404.html som fallback för SPA-routing
+        404: resolve(__dirname, "index.html"),
+      },
+    },
+  },
+
+  server: {
+    open: true,
+    port: 5173,
+  },
+});
